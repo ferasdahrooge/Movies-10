@@ -1,0 +1,40 @@
+<html xmlns="http://www.thymeleaf.org">
+
+
+    <head>
+        <title>Login Page</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        
+    </head>
+
+    <body>
+
+
+        <div class ="container">
+
+            <h2>Login Page</h2>
+            <hr/>
+            <form th:action="@{/loginPage}" th:object="${loginForm}" method="post">
+                
+                <p th:if="${registercomplete}" style="color:green">Registration complete. $20 was charged to your card. Please Sign in</p>
+                <p th:if="${renewsuccess}" style="color:green">Subcription renewed. $20 was charged to your card. Please Sign in</p>
+                <p th:if="${error}" style="color:red">Incorrect Email and Password</p>
+                <input type ="email" class="form-control col-4 mb-4" placeholder="Enter email" name ="email" required/>
+   
+                <input type ="password" class="form-control col-4 mb-4" placeholder="Enter password" name ="password" required/>
+
+                <button class="btn btn-primary" type="submit" value="Login">Login</button>
+                
+            </form>
+
+            <a th:href="@{/registerPage}" class="btn btn-primary">Sign up for a Registered Account</a> 
+
+
+
+
+        </div>
+
+    
+    </body>
+
+</html>
